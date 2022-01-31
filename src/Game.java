@@ -40,8 +40,8 @@ public class Game {
     }
 
     public static String pickWord(){
-        String[] words = {"apple", "eye", "cat", "reign", "platitude", "crash", "yeast", "hale", "pine", "gratitude"};
-        double doublerandnr = Math.random() * 10;
+        String[] words = {"hades", "zeus", "poseidon", "hera", "hestia", "demeter", "apollo", "artemis", "hermes", "ares", "aphrodite", "hephaestus", "athena", "dionysus"};
+        double doublerandnr = Math.random() * 14;
         int randnr = (int)doublerandnr;
         return words[randnr].toUpperCase();
     }
