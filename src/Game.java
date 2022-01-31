@@ -4,11 +4,11 @@ import java.util.Scanner;
 public class Game {
     public static void main (String[] args) {
         String word = pickWord();
-        int tries = 12;
+        int tries = 10;
         String dashes = makeDashes(word);
         char letter;
         String guessed = " ";
-        for(int i = 12; i > 0; i--){
+        for(int i = 10; i > 0; i--){
             letter = getLetter(dashes, tries).charAt(0);
             if(guessedLetter(letter, guessed)){
                 System.out.println("You've already guessed " + letter);
