@@ -16,27 +16,34 @@ public class Game {
             }
             else{
                 guessed = guessed + letter;
-                tries = i;
+                tries -= 1;
                 if(wordIncludesLetter(word, letter)){
                     dashes = dashConversion(word, dashes, letter);
+                    tries += 1;
+                    i += 1;
                 }
             }
             if(gameWon(dashes)){
                 i = 0;
+                System.out.println(wordFound(dashes, tries));
             }
-        }
-        if(gameWon(dashes)){
-            System.out.println(wordFound(dashes, tries));
-        }
-        else{
-            System.out.println(gameLost(dashes, word));
+            else if(gameover(tries)){
+                System.out.println(gameLost(dashes, word));
+            }
         }
     }
 
-    public static String pickWord(){
+    public static String pickWord_two(){
         System.out.print("What's your word? ");
         Scanner tgb = new Scanner(System.in);
         return tgb.nextLine().toUpperCase();
+    }
+
+    public static String pickWord(){
+        String[] words = {"apple", "eye", "cat", "reign", "platitude", "crash", "yeast", "hale", "pine", "gratitude"};
+        double doublerandnr = Math.random() * 10;
+        int randnr = (int)doublerandnr;
+        return words[randnr].toUpperCase();
     }
 
     public static String makeDashes(String w){
@@ -57,7 +64,8 @@ public class Game {
             letter = letter.toUpperCase();
             if (letter.length() == 1 && checkIfLetter(letter)) {
                 return letter;
-            } else {
+            }
+            else {
                 System.out.println("Not valid letter");
             }
         }
@@ -117,6 +125,10 @@ public class Game {
             i += 1;
         }
         return true;
+    }
+
+    public static boolean gameover(int a){
+        return a == 0;
     }
 
     public static String wordFound(String s, int a){
