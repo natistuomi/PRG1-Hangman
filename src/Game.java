@@ -40,8 +40,8 @@ public class Game {
     }
 
     public static String pickWord(){
-        String[] words = {"hades", "zeus", "poseidon", "hera", "hestia", "demeter", "apollo", "artemis", "hermes", "ares", "aphrodite", "hephaestus", "athena", "dionysus"};
-        double doublerandnr = Math.random() * 14;
+        String[] words = {"hades", "zeus", "poseidon", "hera", "hestia", "demeter", "apollo", "artemis", "hermes", "ares", "aphrodite", "hephaestus", "athena", "dionysus", "chaos", "erebus", "gaia", "nyx", "tartarus", "ouranos", "thesis", "phanes", "koios", "krios", "kronos", "hyperion", "iapetos", "mnemosyne", "oceanus", "phoebe", "rhea", "tethys", "theia", "themis", "atlas", "epimetheus", "menoitios", "prometheus", "asteria", "perses", "asterious", "dione", "eos", "helios", "selene", "ariadne", "aeolus", "asclepius", "bia", "cratos", "deimos", "eris", "eros", "psyche", "geras", "ganymede", "harmonia", "hebe", "hecate", "hypnos", "khione", "leto", "metis", "enyo", "eileithyia", "momus", "moros", "nemesis", "nike", "persephone", "phobos", "thanatos", "tyche", "zelus", "klotho", "lachesis", "atropos", "morpheus", "phobetor", "phantasos", "pan", "iris", "triton", "paean", "pallas", "melinoe", "morpheus" };
+        double doublerandnr = Math.random() * 87;
         int randnr = (int)doublerandnr;
         return words[randnr].toUpperCase();
     }
