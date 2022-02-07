@@ -2,41 +2,41 @@ import javax.swing.*;
 import java.util.Scanner;
 
 public class Game {
-    public static void main (String[] args) {
-        String word = pickWord();
-        int tries = 10;
-        String dashes = makeDashes(word);
-        char letter;
-        String guessed = " ";
-        for(int i = 10; i > 0; i--){
-            letter = getLetter(dashes, tries).charAt(0);
-            if(guessedLetter(letter, guessed)){
-                System.out.println("You've already guessed " + letter);
-                i += 1;
-            }
-            else{
-                guessed = guessed + letter;
-                tries -= 1;
-                if(wordIncludesLetter(word, letter)){
-                    dashes = dashConversion(word, dashes, letter);
-                    tries += 1;
+    public static void main (String[] args){
+        int points = 0;
+        for(int x = 0; x < 1; x++){
+            String word = pickWord();
+            int tries = 10;
+            String currentword = makeDashes(word);
+            String visualdashes = makeVisualDashes(currentword);
+            char letter;
+            String guessed = " ";
+            for(int i = 10; i > 0; i--){
+                letter = getLetter(visualdashes, tries).charAt(0);
+                if(guessedLetter(letter, guessed)){
+                    System.out.println("You've already guessed " + letter);
                     i += 1;
                 }
-            }
-            if(gameWon(dashes)){
-                i = 0;
-                System.out.println(wordFound(dashes, tries));
-            }
-            else if(gameover(tries)){
-                System.out.println(gameLost(dashes, word));
+                else{
+                    guessed = guessed + letter;
+                    tries -= 1;
+                    if(wordIncludesLetter(word, letter)){
+                        currentword = wordUpdate(word, currentword, letter);
+                        tries += 1;
+                        i += 1;
+                    }
+                }
+                visualdashes = makeVisualDashes(currentword);
+                if(gameWon(currentword)){
+                    points += tries;
+                    i = gameWonActions(visualdashes, tries, points);
+                }
+                else if(gameover(tries)){
+                    x = gameLostActions(visualdashes, word, points);
+                }
+                x -= 1;
             }
         }
-    }
-
-    public static String pickWord_two(){
-        System.out.print("What's your word? ");
-        Scanner tgb = new Scanner(System.in);
-        return tgb.nextLine().toUpperCase();
     }
 
     public static String pickWord(){
@@ -47,11 +47,19 @@ public class Game {
     }
 
     public static String makeDashes(String w){
-        String dashes = "_ ";
-        for(int i = 0; i < w.length()-1; i++){
-            dashes = dashes + "_ ";
+        String dashes = "";
+        for(int i = 0; i < w.length(); i++){
+            dashes = dashes + "_";
         }
         return dashes;
+    }
+
+    public static String makeVisualDashes(String w){
+        String visualdashes = "";
+        for(int i = 0; i < w.length(); i++){
+            visualdashes = visualdashes + w.charAt(i) + " ";
+        }
+        return visualdashes;
     }
 
     public static String getLetter(String s, int a){
@@ -101,20 +109,20 @@ public class Game {
         return false;
     }
 
-    public static String dashConversion(String w, String s, char l){
-        String newdashes = "";
+    public static String wordUpdate(String w, String s, char l){
+        String word = "";
         for(int i = 0; i < w.length(); i++){
             if(w.charAt(i) == l){
-                newdashes = newdashes + l + " ";
+                word = word + l;
             }
-            else if(s.charAt(i*2) != ' ' || s.charAt(i*2) != '_'){
-                newdashes = newdashes + s.charAt(i*2) + " ";
+            else if(s.charAt(i) != '_'){
+                word = word + s.charAt(i);
             }
             else{
-                newdashes = newdashes + "_ ";
+                word = word + "_";
             }
         }
-        return newdashes;
+        return word;
     }
 
     public static boolean gameWon(String s){
@@ -122,13 +130,26 @@ public class Game {
             if(s.charAt(i) == '_'){
                 return false;
             }
-            i += 1;
         }
         return true;
     }
 
+    public static int gameWonActions(String s, int t, int p){
+        System.out.println(wordFound(s, t));
+        System.out.println("Current score: " + p);
+        System.out.println(" ");
+        return 0;
+    }
+
     public static boolean gameover(int a){
         return a == 0;
+    }
+
+    public static int gameLostActions(String c, String w, int p){
+        System.out.println(gameLost(c, w));
+        System.out.println("Final score: " + p);
+        System.out.println(" ");
+        return 1;
     }
 
     public static String wordFound(String s, int a){
