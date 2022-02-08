@@ -49,6 +49,44 @@ besvaras.
 
 **Positiva erfarenheter**
 
+För att vara det första riktiga uppgiften som utförts med 
+metoder tycker jag att det gick väldigt smidigt. Innan jag 
+lämnade planeringsstadiet läste jag kapitlet i boken för att 
+få en bättre förståelse för syntaxen och syftet med metoder, 
+men även dess begränsningar. Detta var till stor hjälp med 
+arbetet eftersom jag hade en någorlunda solid förståelse över 
+hur jag kunder använda metoderna. Det var intressant att koppla 
+ihop dem små delarna till ett stort program som skulle 
+fungera oberoende av vilket ord som spelades. 
+
 **Negativa erfarenheter**
 
+Efter att jag fick programmet fungerande var det bland annat 
+dags att förenkla vissa delar. Det gick bra på flera ställen, 
+men vid min ordlista är slumpen hårdkodad på så vis att även 
+om man skulle lägga till fler ord skulle man aldrig stöta på 
+dem i spelet. Den hårdkodningen kunde jag inte komma runt och 
+skulle definitivt vilja arbeta med mer i framtiden. 
+
+Det jag känner skulle kunna behöva lite mer övning framöver är 
+tänket när man bygger med metoder. I efterhand märker jag att 
+min main skulle troligen kunna förenklas en hel del till att 
+innehålla iallafall en tredjedel så många kommandon. Detta gör 
+ingen skillnad i funktionen av programmet, men skulle göra det 
+betydligt mycket enklare att få en snabb överblick på spelet 
+utifrån koden.
+
 **Sammanfattning**
+
+Jag är väldigt nöjd med slutprodukten även om det finns vissa 
+aspekter jag skulle älska att finslipa eller utveckla. Det är 
+fullt fungerande och till visso även något roligt att köra. 
+Mitt arbete har uppmärksammat dem områden jag bör arbeta lite 
+mer på och även gett något av en bild på vad jag redan kan. 
+Det är ett projekt som jag gärna skulle vilja återkomma till 
+i framtiden för att se vad och hur jag skulle göra annorlunda. 
+Detta både för att "fixa" dem aspekter jag skrivit om under 
+negativa erfarenhet, men dessutom för att se vad mer jag skulle 
+kunna göra med det. Det skulle bl.a. vara kul att kunna välja 
+mellan olika ordlistor, välja att spela igen och kunna hålla i 
+minnet en poänglista.
